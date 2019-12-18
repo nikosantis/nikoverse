@@ -1,0 +1,15 @@
+{
+  "name": "nikoverse-db",
+  "version": "1.0.0",
+  "description": "A simple IoT Platform - DB Module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "lint-fix": "standard --fix"
+  },
+  "author": "Nikolas Santis",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^14.3.1"
+  }
+}
