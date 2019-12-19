@@ -1,9 +1,25 @@
 'use strict'
 
 const debug = require('debug')('nikoverse:db:setup')
+const inquirer = require('inquirer')
+const chalk = require('chalk')
 const db = require('./')
 
+const prompt = inquirer.createPromptModule()
+
 async function setup () {
+  const answer = await prompt([
+    {
+      type: 'confirm',
+      name: 'setup',
+      message: 'This will destroy your database, are you sure?'
+    }
+  ])
+
+  if (!answer.setup) {
+    return console.log('Nothig happened :)')
+  }
+
   const config = {
     database: process.env.DB_NAME || 'nikoverse',
     username: process.env.DB_USER || 'platzi',
@@ -22,7 +38,7 @@ async function setup () {
 }
 
 function handleFatalError (err) {
-  console.error(err.message)
+  console.error(`${chalk.red('[fatal error]')} ${err.message}`)
   console.error(err.stack)
   process.exit(1)
 }
