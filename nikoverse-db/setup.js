@@ -4,7 +4,6 @@ const debug = require('debug')('nikoverse:db:setup')
 const db = require('./')
 
 async function setup () {
-
   const config = {
     database: process.env.DB_NAME || 'nikoverse',
     username: process.env.DB_USER || 'platzi',
@@ -14,13 +13,18 @@ async function setup () {
     logging: s => debug(s),
     setup: true
   }
-  
+
   await db(config)
     .catch(handleFatalError)
+
+  console.log('Success!')
+  process.exit(0)
 }
 
-function handleFatalError () {
-  
+function handleFatalError (err) {
+  console.error(err.message)
+  console.error(err.stack)
+  process.exit(1)
 }
 
 setup()
