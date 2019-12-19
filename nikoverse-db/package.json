@@ -4,7 +4,7 @@
   "description": "A simple IoT Platform - DB Module",
   "main": "index.js",
   "scripts": {
-    "test": "DEBUG=nikoverse:* ava tests/* --verbose",
+    "test": "DEBUG=nikoverse:* nyc --reporter=lcov ava tests/* --verbose",
     "setup": "DEBUG=nikoverse:* node setup.js",
     "lint": "standard",
     "lint-fix": "standard --fix"
@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^2.4.0",
+    "nyc": "^14.1.1",
     "sqlite3": "^4.1.1",
     "standard": "^14.3.1"
   },
