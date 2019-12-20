@@ -4,7 +4,7 @@
   "description": "A simple IoT Platform - DB Module",
   "main": "index.js",
   "scripts": {
-    "test": "DEBUG=nikoverse:* nyc --reporter=lcov ava tests/* --verbose",
+    "test": "DEBUG=nikoverse:* nyc --reporter=lcov ava tests/**-test.js --verbose",
     "setup": "DEBUG=nikoverse:* node setup.js",
     "lint": "standard",
     "lint-fix": "standard --fix"
