@@ -3,7 +3,10 @@
 const debug = require('debug')('nikoverse:agent')
 const mqtt = require('mqtt')
 const defaults = require('defaults')
+const uuid = require('uuid')
 const EventEmitter = require('events')
+
+const { parsePayload } = require('./utils')
 
 const options = {
   name: 'untitled',
@@ -19,10 +22,10 @@ class NikoverseAgent extends EventEmitter {
     super()
 
     this._options = defaults(opts, options)
-    this._client = null
-
     this._started = false
     this._timer = null
+    this._client = null
+    this._agentId = null
   }
 
   connect() {
@@ -36,7 +39,9 @@ class NikoverseAgent extends EventEmitter {
       this._client.subscribe('agent/disconnected')
 
       this._client.on('connect', () => {
-        this.emit('connected')
+        this._agentId = uuid.v4()
+
+        this.emit('connected', this._agentId)
 
         this._timer = setInterval(() => {
           this.emit('agent/message', 'this is a message')
@@ -44,6 +49,20 @@ class NikoverseAgent extends EventEmitter {
       })
 
       this._client.on('message', (topic, payload) => {
+        payload = parsePayload(payload)
+
+        let broadcast = false
+        switch(topic) {
+          case 'agent/connected':
+          case 'agent/disconnected':
+          case 'agent/message':
+            broadcast = payload && payload.agent && payload.agent.uuid !== this._agentId
+            break
+        }
+
+        if (broadcast) {
+          this.emit(topic, payload)
+        }
 
       })
 
