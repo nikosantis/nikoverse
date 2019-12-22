@@ -20,6 +20,7 @@
     "debug": "^4.1.1",
     "mongodb": "^3.4.1",
     "mosca": "^2.8.3",
+    "nikoverse-db": "file:../nikoverse-db",
     "redis": "^2.8.0"
   }
 }
