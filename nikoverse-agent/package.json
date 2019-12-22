@@ -1,0 +1,12 @@
+{
+  "name": "nikoverse-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Simple IoT Platform - agent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikolas Santis",
+  "license": "MIT"
+}
