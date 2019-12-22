@@ -20,7 +20,7 @@ const options = {
 }
 
 class NikoverseAgent extends EventEmitter {
-  constructor(opts) {
+  constructor (opts) {
     super()
 
     this._options = defaults(opts, options)
@@ -39,7 +39,7 @@ class NikoverseAgent extends EventEmitter {
     this._metrics.delete(type)
   }
 
-  connect() {
+  connect () {
     if (!this._started) {
       const opts = this._options
       this._client = mqtt.connect(opts.mqtt.host)
@@ -67,23 +67,23 @@ class NikoverseAgent extends EventEmitter {
               metrics: [],
               timestamp: new Date().getTime()
             }
-          }
 
-          for (let [ metric, fn ] of this._metrics) {
-            if (fn.length == 1) {
-              fn = util.promisify(fn)
+            for (let [metric, fn] of this._metrics) {
+              if (fn.length === 1) {
+                fn = util.promisify(fn)
+              }
+
+              message.metrics.push({
+                type: metric,
+                value: await Promise.resolve(fn())
+              })
             }
 
-            message.metrics.push({
-              type: metric,
-              value: await Promise.resolve(fn())
-            })
+            debug('Sending', message)
+
+            this._client.publish('agent/message', JSON.stringify(message))
+            this.emit('message', message)
           }
-
-          debug(`Sending ${message}`)
-
-          this._client.publish('agent/message', JSON.stringify(message))
-          this.emit('message', message)
         }, opts.interval)
       })
 
@@ -91,7 +91,7 @@ class NikoverseAgent extends EventEmitter {
         payload = parsePayload(payload)
 
         let broadcast = false
-        switch(topic) {
+        switch (topic) {
           case 'agent/connected':
           case 'agent/disconnected':
           case 'agent/message':
@@ -102,14 +102,13 @@ class NikoverseAgent extends EventEmitter {
         if (broadcast) {
           this.emit(topic, payload)
         }
-
       })
 
       this._client.on('error', () => this.disconnect())
     }
   }
 
-  disconnect() {
+  disconnect () {
     if (this._started) {
       clearInterval(this._timer)
       this._started = false

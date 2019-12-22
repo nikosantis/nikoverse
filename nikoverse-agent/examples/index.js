@@ -1,9 +1,4 @@
-# nikoverse-agent
-
-## Usage
-
-```js
-const NikoverseAgent = require('nikoverse-agent')
+const NikoverseAgent = require('../')
 
 const agent = new NikoverseAgent({
   name: 'myapp',
@@ -19,7 +14,7 @@ agent.addMetric('promiseMetric', function getRandomPromise () {
   return Promise.resolve(Math.random())
 })
 
-agent.addMetric('callbackMetric', function getRandomCallback () {
+agent.addMetric('callbackMetric', function getRandomCallback (callback) {
   setTimeout(() => {
     callback(null, Math.random())
   }, 1000)
@@ -39,7 +34,6 @@ agent.on('agent/message', handler)
 
 function handler (payload) {
   console.log(payload)
-})
+}
 
-setTimeout(() => agent.disconnect(), 20000)
-```
+setTimeout(() => agent.disconnect(), 10000)
