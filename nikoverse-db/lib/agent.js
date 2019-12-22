@@ -3,7 +3,7 @@
 module.exports = function setupAgent (AgentModel) {
   async function createOrUpdate (agent) {
     const cond = {
-      where : {
+      where: {
         uuid: agent.uuid
       }
     }

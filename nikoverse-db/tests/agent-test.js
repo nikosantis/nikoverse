@@ -6,42 +6,42 @@ const proxyquire = require('proxyquire')
 
 const agentFixtures = require('./fixtures/agent')
 
-let config = {
+const config = {
   logging () {}
 }
 
-let MetricStub = {
+const MetricStub = {
   belongsTo: sinon.spy()
 }
 
-let id = 1
-let uuid = 'yyy-yyy-yyy'
+const id = 1
+const uuid = 'yyy-yyy-yyy'
 let AgentStub = null
 let db = null
 let sandbox = null
 
-let single = Object.assign({}, agentFixtures.single)
+const single = Object.assign({}, agentFixtures.single)
 
-let connectedArgs = {
+const connectedArgs = {
   where: {
     connected: true
   }
 }
 
-let usernameArgs = {
+const usernameArgs = {
   where: {
     username: 'platzi',
     connected: true
   }
 }
 
-let uuidArgs = {
-  where : {
+const uuidArgs = {
+  where: {
     uuid
   }
 }
 
-let newAgent = {
+const newAgent = {
   uuid: '123-123-123',
   name: 'test',
   username: 'test',
@@ -106,7 +106,7 @@ test.serial('Setup', t => {
 })
 
 test.serial('Agent#findById', async t => {
-  let agent = await db.Agent.findById(id)
+  const agent = await db.Agent.findById(id)
 
   t.true(AgentStub.findById.called, 'findById should be called on model')
   t.true(AgentStub.findById.calledOnce, 'findById should be called once')
@@ -116,7 +116,7 @@ test.serial('Agent#findById', async t => {
 })
 
 test.serial('Agent#findByUuid', async t => {
-  let agent = await db.Agent.findByUuid(uuid)
+  const agent = await db.Agent.findByUuid(uuid)
 
   t.true(AgentStub.findOne.called, 'findOne should be called on model')
   t.true(AgentStub.findOne.calledOnce, 'fidOne should be called once')
@@ -126,7 +126,7 @@ test.serial('Agent#findByUuid', async t => {
 })
 
 test.serial('Agent#findAll', async t => {
-  let agents = await db.Agent.findAll()
+  const agents = await db.Agent.findAll()
 
   t.true(AgentStub.findAll.called, 'findAll should be called on model')
   t.true(AgentStub.findAll.calledOnce, 'findAll should be called once')
@@ -137,7 +137,7 @@ test.serial('Agent#findAll', async t => {
 })
 
 test.serial('Agent#findConnected', async t => {
-  let agents = await db.Agent.findConnected()
+  const agents = await db.Agent.findConnected()
 
   t.true(AgentStub.findAll.called, 'findAll should be called on model')
   t.true(AgentStub.findAll.calledOnce, 'findAll should be called once')
@@ -148,7 +148,7 @@ test.serial('Agent#findConnected', async t => {
 })
 
 test.serial('Agent#findByUsername', async t => {
-  let agents = await db.Agent.findByUsername('platzi')
+  const agents = await db.Agent.findByUsername('platzi')
 
   t.true(AgentStub.findAll.called, 'findAll should be called on model')
   t.true(AgentStub.findAll.calledOnce, 'findAll should be called once')
@@ -159,7 +159,7 @@ test.serial('Agent#findByUsername', async t => {
 })
 
 test.serial('Agent#createOrUpdate - exists', async t => {
-  let agent = await db.Agent.createOrUpdate(single)
+  const agent = await db.Agent.createOrUpdate(single)
 
   t.true(AgentStub.findOne.called, 'findOne should be called on model')
   t.true(AgentStub.findOne.calledTwice, 'findOne should be called twice')
@@ -172,7 +172,7 @@ test.serial('Agent#createOrUpdate - exists', async t => {
 })
 
 test.serial('Agent#createOrUpdate - new', async t => {
-  let agent = await db.Agent.createOrUpdate(newAgent)
+  const agent = await db.Agent.createOrUpdate(newAgent)
 
   t.true(AgentStub.findOne.called, 'findOne should be called on model')
   t.true(AgentStub.findOne.calledOnce, 'findOne should be called once')
