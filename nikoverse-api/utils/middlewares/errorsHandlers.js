@@ -18,19 +18,6 @@ function logError (err, req, res, next) {
   next(err)
 }
 
-function clientErrorHandler(err, req, res, next) {
-  const {
-    output: { statusCode, payload }
-  } = err
-
-  // catch errors for AJAX request or if an ocurrs while streaming
-  if (isRequestAjaxOrApi(req) || res.headerSent) {
-    res.status(statusCode).json(withErrorStack(payload, err.stack))
-  } else {
-    next(err)
-  }
-}
-
 function errorHandler (err, req, res, next) {
   const {
     output: { statusCode, payload }
@@ -43,6 +30,5 @@ function errorHandler (err, req, res, next) {
 module.exports = {
   handleFatalError,
   logError,
-  clientErrorHandler,
   errorHandler
 }
