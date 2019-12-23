@@ -49,7 +49,7 @@ api.get('/agent/:uuid', async (req, res, next) => {
   try {
     agent = await Agent.findByUuid(uuid)
   } catch (e) {
-    next(e)
+    return next(e)
   }
 
   if (!agent) {
@@ -68,7 +68,7 @@ api.get('/metrics/:uuid', async (req, res, next) => {
   try {
     metrics = await Metric.findByAgentUuid(uuid)
   } catch (e) {
-    next(e)
+    return next(e)
   }
 
   if (!metrics || metrics.length === 0) {
@@ -86,7 +86,7 @@ api.get('/metrics/:uuid/:type', async (req, res, next) => {
   try {
     metrics = await Metric.findByTypeAgentUuid(type, uuid)
   } catch (e) {
-    next(e)
+    return next(e)
   }
 
   if (!metrics || metrics.length === 0) {
