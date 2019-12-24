@@ -1,0 +1,22 @@
+{
+  "name": "nikoverse-web",
+  "version": "1.0.0",
+  "description": "A Simple IoT Platform - web Dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server.js",
+    "start-dev": "DEBUG=nikoverse:* nodemon server.js",
+    "lint": "standard"
+  },
+  "author": "Nikolas Santis",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "debug": "^4.1.1",
+    "express": "^4.17.1"
+  }
+}
