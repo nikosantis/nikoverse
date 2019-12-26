@@ -3,11 +3,11 @@
 const { Line, mixins } = require('vue-chartjs')
 const { reactiveProp } = mixins
 
-module.exports = Line.extend({
+module.exports = {
   extends: Line,
-  mixins: [ reactiveProp ],
   props: [ 'options' ],
+  mixins: [reactiveProp],
   mounted () {
     this.renderChart(this.chartData, this.options)
   }
-})
+}
