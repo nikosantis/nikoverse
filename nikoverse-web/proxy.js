@@ -32,3 +32,5 @@ api.get('/agent/:uuid', (req, res) => {})
 api.get('/metrics/:uuid', (req, res) => {})
 
 api.get('/metrics/:uuid/:type', (req, res) => {})
+
+module.exports = api
