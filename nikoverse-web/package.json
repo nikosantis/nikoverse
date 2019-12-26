@@ -7,7 +7,8 @@
     "start": "NODE_ENV=production node server.js",
     "prestart": "npm run build",
     "start-dev": "DEBUG=nikoverse:* nodemon server.js",
-    "prestart-dev": "browserify -t babelify -t vueify client/app.js -o public/bundle.js",
+    "prestart-dev": "npm run build",
+    "build": "browserify -t babelify -t vueify client/app.js -o public/bundle.js",
     "lint": "standard"
   },
   "author": "Nikolas Santis",
@@ -46,6 +47,7 @@
     "request": "^2.88.0",
     "request-promise-native": "^1.0.8",
     "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
     "vue": "^2.6.11",
     "vue-chartjs": "^2.8.7"
   }

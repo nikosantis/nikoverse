@@ -5,8 +5,8 @@ const { reactiveProp } = mixins
 
 module.exports = {
   extends: Line,
-  props: [ 'options' ],
   mixins: [reactiveProp],
+  props: ['options'],
   mounted () {
     this.renderChart(this.chartData, this.options)
   }
