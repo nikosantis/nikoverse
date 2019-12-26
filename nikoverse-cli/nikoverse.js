@@ -12,14 +12,19 @@ const NikoverseAgent = require('nikoverse-agent')
 const agent = new NikoverseAgent()
 const screen = blessed.screen()
 
+const agents = new Map()
+const agentMetrics = new Map()
+let extended = []
+let selected = {
+  uuid: null,
+  type: null
+}
+
 const grid = new contrib.grid({
   rows: 1,
   cols: 4,
   screen
 })
-
-const agents = new Map()
-const agentMetrics = new Map()
 
 const tree = grid.set(0, 0, 1, 1, contrib.tree, {
   label: 'Connected Agents'
@@ -86,19 +91,35 @@ agent.on('agent/message', payload => {
   renderData()
 })
 
+tree.on('select', node => {
+  const { uuid } = node
+
+  if (node.agent) {
+    node.extended ? extended.push(uuid) : extended = extended.filter(e => e !== uuid)
+    selected.uiid = null
+    selected.type = null
+    return
+  }
+
+  selected.uuid = uuid
+  selected.type = node.type
+
+  renderMetric()
+})
+
 function renderData () {
   const treeData = {}
-
+  let idx = 0
   for (let [ uuid, val ] of agents) {
-    const title = `${val.name} - ${val.pid}`
+    const title = `${val.name} - (${val.pid})`
     treeData[title] = {
       uuid,
       agent: true,
+      extended: extended.includes(uuid),
       children: {}
     }
 
     const metrics = agentMetrics.get(uuid)
-
     Object.keys(metrics).forEach(type => {
       const metric = {
         uuid,
@@ -106,7 +127,7 @@ function renderData () {
         metric: true
       }
 
-      const metricName = ` ${type}`
+      const metricName = ` ${type} ${' '.repeat(1000)} ${idx++}`
       treeData[title].children[metricName] = metric
     })
   }
@@ -115,11 +136,30 @@ function renderData () {
     extended: true,
     children: treeData
   })
+
+  renderMetric()
+}
+
+function renderMetric () {
+  if (!selected.uuid && !selected.type) {
+    line.setData([{ x: [], y: [], title: '' }])
+    screen.render()
+    return
+  }
+
+  const metrics = agentMetrics.get(selected.uuid)
+  const values = metrics[selected.type]
+  const series = [{
+    title: selected.type,
+    x: values.map(v => v.timestamp).slice(-10),
+    y: values.map(v => v.value).slice(-10)
+  }]
+
+  line.setData(series)
   screen.render()
 }
 
-
-screen.key(['escape', 'q', 'C-c'], (ch, key) => {
+screen.key([ 'escape', 'q', 'C-c' ], (ch, key) => {
   process.exit(0)
 })
 
