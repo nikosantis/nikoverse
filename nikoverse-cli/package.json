@@ -1,0 +1,18 @@
+{
+  "name": "nikoverse-cli",
+  "version": "1.0.0",
+  "description": "A Simple IoT Platform - CLI",
+  "bin": "nikoverse.js",
+  "scripts": {
+    "lint": "standard"
+  },
+  "author": "Nikolas Santis",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "args": "^5.0.1",
+    "minimist": "^1.2.0"
+  }
+}

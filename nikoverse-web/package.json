@@ -1,6 +1,7 @@
 {
   "name": "nikoverse-web",
   "version": "1.0.0",
+  "private": true,
   "description": "A Simple IoT Platform - web Dashboard",
   "main": "server.js",
   "scripts": {
