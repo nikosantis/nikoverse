@@ -92,7 +92,7 @@ module.exports = {
 
     startRealtime () {
       const { type, uuid, socket } = this
-      socket.on('/agent/message', payload => {
+      socket.on('agent/message', payload => {
         if (payload.agent.uuid === uuid) {
           const metric = payload.metrics.find(m => m.type === type)
 

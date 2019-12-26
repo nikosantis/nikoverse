@@ -5,6 +5,7 @@ const asyncify = require('express-asyncify')
 const request = require('request-promise-native')
 
 const { endpoint, apiToken } = require('./config')
+
 const api = asyncify(express.Router())
 
 api.get('/agents', async (req, res, next) => {
