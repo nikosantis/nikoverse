@@ -16,7 +16,7 @@ const metrics = [
   { ...metric, id: 2, agentId: 1, type: 'cpu', value: '600' },
   { ...metric, id: 3, agentId: 2, type: 'memory', value: '200' },
   { ...metric, id: 4, agentId: 2, type: 'cpu', value: '1000' },
-  { ...metric, id: 5, agentId: 2, type: 'gpu', value: '800' },
+  { ...metric, id: 5, agentId: 2, type: 'gpu', value: '800' }
 ]
 
 function extend (obj, values) {

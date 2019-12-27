@@ -10,6 +10,10 @@
     "start-dev": "DEBUG=nikoverse:* nodemon server.js",
     "lint": "standard"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikosantis/nikoverse"
+  },
   "author": "Nikolas Santis",
   "license": "MIT",
   "devDependencies": {

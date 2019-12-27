@@ -10,6 +10,10 @@
     "lint": "standard",
     "lint:fix": "standard --fix"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikosantis/nikoverse"
+  },
   "author": "Nikolas Santis",
   "license": "MIT",
   "devDependencies": {

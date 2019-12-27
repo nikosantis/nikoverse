@@ -1,8 +1,5 @@
 'use strict'
 
-if (process.env.NODE_ENV !== 'production'){
-  require('longjohn');
-}
 const setupDatabase = require('./lib/db')
 const setupAgentModel = require('./models/agent')
 const setupMetricModel = require('./models/metric')

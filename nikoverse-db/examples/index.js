@@ -39,7 +39,7 @@ async function run () {
 
   const metric = await Metric.create(agent.uuid, {
     type: 'memory',
-    value:'300'
+    value: '300'
   })
     .catch(handleFatalError)
   console.log('--metric--')
@@ -51,10 +51,10 @@ async function run () {
   console.log(metricsByType)
 }
 
-function handleFatalError(err) {
+function handleFatalError (err) {
   console.error(err.message)
   console.error(err.stack)
   process.exit(1)
 }
 
-run ()
+run()

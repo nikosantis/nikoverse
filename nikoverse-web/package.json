@@ -1,7 +1,6 @@
 {
   "name": "nikoverse-web",
   "version": "1.0.0",
-  "private": true,
   "description": "A Simple IoT Platform - web Dashboard",
   "main": "server.js",
   "scripts": {
@@ -11,6 +10,10 @@
     "prestart-dev": "npm run build",
     "build": "browserify -t babelify -t vueify client/app.js -o public/bundle.js",
     "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikosantis/nikoverse"
   },
   "author": "Nikolas Santis",
   "license": "MIT",

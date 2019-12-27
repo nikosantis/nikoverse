@@ -102,9 +102,9 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   module.hot.accept()
   module.hot.dispose(__vueify_style_dispose__)
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5dd77d27", __vue__options__)
+    hotAPI.createRecord("data-v-30493d0a", __vue__options__)
   } else {
-    hotAPI.reload("data-v-5dd77d27", __vue__options__)
+    hotAPI.reload("data-v-30493d0a", __vue__options__)
   }
 })()}
 },{"request-promise-native":327,"vue":441,"vue-hot-reload-api":439,"vueify/lib/insert-css":443}],2:[function(require,module,exports){
@@ -192,9 +192,9 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   module.hot.accept()
   module.hot.dispose(__vueify_style_dispose__)
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-85cc7e7a", __vue__options__)
+    hotAPI.createRecord("data-v-09b2aa17", __vue__options__)
   } else {
-    hotAPI.reload("data-v-85cc7e7a", __vue__options__)
+    hotAPI.reload("data-v-09b2aa17", __vue__options__)
   }
 })()}
 },{"request-promise-native":327,"socket.io-client":357,"vue":441,"vue-hot-reload-api":439,"vueify/lib/insert-css":443}],4:[function(require,module,exports){
@@ -342,9 +342,9 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   module.hot.accept()
   module.hot.dispose(__vueify_style_dispose__)
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-fc600104", __vue__options__)
+    hotAPI.createRecord("data-v-3848a5aa", __vue__options__)
   } else {
-    hotAPI.reload("data-v-fc600104", __vue__options__)
+    hotAPI.reload("data-v-3848a5aa", __vue__options__)
   }
 })()}
 },{"./line-chart":4,"moment":261,"random-material-color":306,"request-promise-native":327,"vue":441,"vue-hot-reload-api":439,"vueify/lib/insert-css":443}],6:[function(require,module,exports){
@@ -43850,30 +43850,36 @@ utils.intFromLE = intFromLE;
 
 },{"bn.js":84,"minimalistic-assert":259,"minimalistic-crypto-utils":260}],166:[function(require,module,exports){
 module.exports={
-  "_from": "elliptic@^6.0.0",
+  "_args": [
+    [
+      "elliptic@6.5.2",
+      "/Users/mediosdigitales/Desktop/dev/nikoverse/nikoverse-web"
+    ]
+  ],
+  "_development": true,
+  "_from": "elliptic@6.5.2",
   "_id": "elliptic@6.5.2",
   "_inBundle": false,
   "_integrity": "sha512-f4x70okzZbIQl/NSRLkI/+tteV/9WqL98zx+SQ69KbXxmVrmjwsNUPn/gYJJ0sHvEak24cZgHIPegRePAtA/xw==",
   "_location": "/elliptic",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "elliptic@^6.0.0",
+    "raw": "elliptic@6.5.2",
     "name": "elliptic",
     "escapedName": "elliptic",
-    "rawSpec": "^6.0.0",
+    "rawSpec": "6.5.2",
     "saveSpec": null,
-    "fetchSpec": "^6.0.0"
+    "fetchSpec": "6.5.2"
   },
   "_requiredBy": [
     "/browserify-sign",
     "/create-ecdh"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.2.tgz",
-  "_shasum": "05c5678d7173c049d8ca433552224a495d0e3762",
-  "_spec": "elliptic@^6.0.0",
-  "_where": "/Users/nikosantis/Documents/dev/nikoverse/nikoverse-web/node_modules/browserify-sign",
+  "_spec": "6.5.2",
+  "_where": "/Users/mediosdigitales/Desktop/dev/nikoverse/nikoverse-web",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -43881,7 +43887,6 @@ module.exports={
   "bugs": {
     "url": "https://github.com/indutny/elliptic/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "bn.js": "^4.4.0",
     "brorand": "^1.0.1",
@@ -43891,7 +43896,6 @@ module.exports={
     "minimalistic-assert": "^1.0.0",
     "minimalistic-crypto-utils": "^1.0.0"
   },
-  "deprecated": false,
   "description": "EC cryptography",
   "devDependencies": {
     "brfs": "^1.4.3",
@@ -107583,30 +107587,35 @@ Store.prototype.getAllCookies = function(cb) {
 
 },{}],424:[function(require,module,exports){
 module.exports={
-  "_from": "tough-cookie@~2.4.3",
+  "_args": [
+    [
+      "tough-cookie@2.4.3",
+      "/Users/mediosdigitales/Desktop/dev/nikoverse/nikoverse-web"
+    ]
+  ],
+  "_from": "tough-cookie@2.4.3",
   "_id": "tough-cookie@2.4.3",
   "_inBundle": false,
   "_integrity": "sha512-Q5srk/4vDM54WJsJio3XNn6K2sCG+CQ8G5Wz6bZhRZoAe/+TxjWB/GlFAnYEbkYVlON9FMk/fE3h2RLpPXo4lQ==",
   "_location": "/tough-cookie",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "tough-cookie@~2.4.3",
+    "raw": "tough-cookie@2.4.3",
     "name": "tough-cookie",
     "escapedName": "tough-cookie",
-    "rawSpec": "~2.4.3",
+    "rawSpec": "2.4.3",
     "saveSpec": null,
-    "fetchSpec": "~2.4.3"
+    "fetchSpec": "2.4.3"
   },
   "_requiredBy": [
     "/request",
     "/request-promise-native"
   ],
   "_resolved": "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.4.3.tgz",
-  "_shasum": "53f36da3f47783b0925afa06ff9f3b165280f781",
-  "_spec": "tough-cookie@~2.4.3",
-  "_where": "/Users/nikosantis/Documents/dev/nikoverse/nikoverse-web/node_modules/request",
+  "_spec": "2.4.3",
+  "_where": "/Users/mediosdigitales/Desktop/dev/nikoverse/nikoverse-web",
   "author": {
     "name": "Jeremy Stashewsky",
     "email": "jstash@gmail.com"
@@ -107614,7 +107623,6 @@ module.exports={
   "bugs": {
     "url": "https://github.com/salesforce/tough-cookie/issues"
   },
-  "bundleDependencies": false,
   "contributors": [
     {
       "name": "Alexander Savin"
@@ -107639,7 +107647,6 @@ module.exports={
     "psl": "^1.1.24",
     "punycode": "^1.4.1"
   },
-  "deprecated": false,
   "description": "RFC6265 Cookies and Cookie Jar for node.js",
   "devDependencies": {
     "async": "^1.4.2",

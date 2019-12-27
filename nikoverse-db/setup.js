@@ -3,16 +3,14 @@
 const debug = require('debug')('nikoverse:db:setup')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
+const minimist = require('minimist')
 const db = require('./')
 
+const args = minimist(process.argv)
 const prompt = inquirer.createPromptModule()
 
 async function setup () {
-  const arg = process.argv.slice(2)
-
-  if (arg[0] === '-y') {
-    console.log('yes from args :o - continuing')
-  } else {
+  if (!args.yes) {
     const answer = await prompt([
       {
         type: 'confirm',
@@ -22,7 +20,7 @@ async function setup () {
     ])
 
     if (!answer.setup) {
-      return console.log('Nothig happened :)')
+      return console.log(`${chalk.blue('[Nothing Happened! :)]')}`)
     }
   }
 
@@ -39,7 +37,7 @@ async function setup () {
   await db(config)
     .catch(handleFatalError)
 
-  console.log('Success!')
+  console.log(`${chalk.green('Success!')}`)
   process.exit(0)
 }
 
