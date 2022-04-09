@@ -37,7 +37,7 @@
     "debug": "^4.1.1",
     "express": "^4.17.1",
     "express-asyncify": "^1.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "nikoverse-agent": "file:../nikoverse-agent",
     "random-material-color": "^1.0.5",
     "request": "^2.88.0",
